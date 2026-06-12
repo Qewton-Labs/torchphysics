@@ -5,9 +5,9 @@ from ...problem.spaces import Points
 
 
 class DeepONetDataLoader(torch.utils.data.DataLoader):
-    r"""
-    A DataLoader that can be used in a condition to load minibatches of paired
-    data points as the input and output of a DeepONet-model.
+    """
+    A DataLoader that can be used in a condition to load mini batches of paired data
+    points as the input and output of a DeepONet-model.
 
     Parameters
     ----------

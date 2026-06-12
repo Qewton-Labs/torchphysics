@@ -80,14 +80,14 @@ class Interval(Domain):
 
     @property
     def boundary_left(self):
-        """Returns only the left boundary value, useful for the definintion
-        of inital conditions.
+        """Returns only the left boundary value, useful for the definition
+        of initial conditions.
         """
         return IntervalSingleBoundaryPoint(self, side=self.lower_bound)
 
     @property
     def boundary_right(self):
-        """Returns only the left boundary value, useful for the definintion
+        """Returns only the left boundary value, useful for the definition
         of end conditions.
         """
         return IntervalSingleBoundaryPoint(self, side=self.upper_bound, normal_vec=1)

@@ -1,4 +1,4 @@
-"""File contains different helper functions to get specific informations about
+"""File contains different helper functions to get specific information about
 the computed solution.
 """
 
@@ -23,7 +23,7 @@ def compute_min_and_max(
         A sampler that creates the points where the model should be evaluated.
     evaluation_fn : callable
         A user-defined function that uses the neural network and creates the
-        desiered output quantity.
+        desired output quantity.
     device : str or torch device
         The device of the model.
     track_gradients : bool

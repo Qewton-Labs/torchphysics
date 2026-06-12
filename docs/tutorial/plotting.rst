@@ -30,14 +30,14 @@ plot_function
   .. code-block:: python 
 
     def plot_fn(u):
-        return u # remeber u is the model outputs not the model itself 
+        return u # remember u is the model outputs not the model itself 
 
-  If we want to plot the laplcian w.r.t. :math:`x`, or any other kind of derivative:
+  If we want to plot the Laplacian w.r.t. :math:`x`, or any other kind of derivative:
 
   .. code-block:: python 
 
     def plot_fn(u, x):
-        return tp.utils.laplcian(u, x)
+        return tp.utils.laplacian(u, x)
 
   Or if we know the exact solution and want the error, we can compute this in there:
   

@@ -75,7 +75,7 @@ class HarmonicFunctionSet2D(HarmonicFunctionSet1D):
         The number of functions in the set. This sets how many a_i, b_i are created 
         at once.
     period : list or tuple
-        The length of the underyling domain in each space direction.
+        The length of the underlying domain in each space direction.
     max_frequence : list or tuple
         The maximum frequence of the functions in each space direction.
     random_sample_fn : callable, optional

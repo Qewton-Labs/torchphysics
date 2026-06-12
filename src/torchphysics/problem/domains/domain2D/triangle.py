@@ -140,7 +140,7 @@ class Triangle(Domain):
         return Points(points, self.space)
 
     def _compute_barycentric_grid(self, n, dir_1, dir_2, device):
-        # since we have a triangle, we rmove later the points with bary.-
+        # since we have a triangle, we remove later the points with bary.-
         # coordinates bigger one. Therefore double the number of points:
         scaled_n = 2 * n
         side_length_1 = torch.linalg.norm(dir_1, dim=1)

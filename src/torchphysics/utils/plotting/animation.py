@@ -29,7 +29,7 @@ def animate(
     model : torchphysics.models.Model
         The Model/neural network that should be used in the plot.
     ani_function : Callable
-        A function that specfices the part of the model that should be animated.
+        A function that specifies the part of the model that should be animated.
         Of the same form as the plot function.
     point_sampler : torchphysics.samplers.AnimationSampler
         A Sampler that creates the points that should be used for the
@@ -37,12 +37,12 @@ def animate(
     angle : list, optional
         The view angle for 3D plots. Standard angle is [30, 30]
     ani_type : str, optional
-        Specifies how the output sholud be animated. If no input is given, the method
+        Specifies how the output should be animated. If no input is given, the method
         will try to use a fitting way, to show the data. Implemented types are:
             - 'line' for line animations, with a 1D-domain and output
             - 'surface_2D' for surface animation, with a 2D-domain
             - 'quiver_2D' for quiver/vector field animation, with a 2D-domain
-            - 'contour_surface' for contour/colormaps, with a 2D-domain
+            - 'contour_surface' for contour/color-maps, with a 2D-domain
 
     Returns
     -------
@@ -53,7 +53,7 @@ def animate(
 
     Notes
     -----
-    This methode only creates a simple animation and is for complex
+    This method only creates a simple animation and is for complex
     domains not really optimized. Should only be used to get a rough understanding
     of the trained neural network.
     """
@@ -167,7 +167,7 @@ def _animation_for_two_outputs(domain_dim):
 def animation_line(
     outputs, ani_sampler, animation_points, domain_points, angle, ani_speed
 ):
-    """Handels 1D animations, inputs are the same as animation()."""
+    """Handles 1D animations, inputs are the same as animation()."""
     output_max, output_min, domain_bounds, _, domain_name = _compute_animation_params(
         outputs, ani_sampler, animation_points
     )
@@ -216,7 +216,7 @@ def animation_line(
 def animation_surface2D(
     outputs, ani_sampler, animation_points, domain_points, angle, ani_speed
 ):
-    """Handels 2D animations, inputs are the same as animation()."""
+    """Handles 2D animations, inputs are the same as animation()."""
     output_max, output_min, domain_bounds, ani_key, domain_name = (
         _compute_animation_params(outputs, ani_sampler, animation_points)
     )

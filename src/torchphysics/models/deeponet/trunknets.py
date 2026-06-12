@@ -17,7 +17,7 @@ class TrunkNet(Model):
         The default input for the trunk net if no other values are specified.
         This default is used when the DeepONet only should be evaluated for new
         branch inputs, but the trunk input stays fixed. Shape should be of the form
-        (N_batch, ..., dimension of input space), here ... can be abritrary many dimensions.
+        (N_batch, ..., dimension of input space), here ... can be arbitrary many dimensions.
         If trunk_input_copied=True, N_batch needs to be equal to 1.
     trunk_input_copied : bool, optional
         If every sample function of the branch input gets evaluated at the same trunk input,
@@ -94,13 +94,20 @@ class FCTrunkNet(TrunkNet):
     input_space : Space
         The space of the points the can be put into this model.
     hidden : list or tuple
+    default_trunk_input : tp.spaces.Points, torch.tensor
+        The default input for the trunk net if no other values are specified.
+        This default is used when the DeepONet only should be evaluated for new
+        branch inputs, but the trunk input stays fixed. Shape should be of the form
+        (N_batch, ..., dimension of input space), here ... can be arbitrary many dimensions.
+        If trunk_input_copied=True, N_batch needs to be equal to 1.
+    trunk_input_copied : bool, optional
         The number and size of the hidden layers of the neural network.
-        The lenght of the list/tuple will be equal to the number
+        The length of the list/tuple will be equal to the number
         of hidden layers, while the i-th entry will determine the number
         of neurons of each layer.
     activations : torch.nn or list, optional
         The activation functions of this network.
-        Deafult is nn.Tanh().
+        Default is nn.Tanh().
     xavier_gains : float or list, optional
         For the weight initialization a Xavier/Glorot algorithm will be used.
         Default is 5/3.

@@ -37,7 +37,7 @@ class Domain:
 
     def transform_to_user_functions(self, *domain_params):
         """Transforms all parameters that define a given domain to
-        a UserFunction. This enables that the domain can dependt on other variables.
+        a UserFunction. This enables that the domain can dependent on other variables.
 
         Parameters
         ----------
@@ -76,7 +76,7 @@ class Domain:
         -----
         For all basic domains the volume (and surface) are implemented.
         But if the given domain has a complex shape or is
-        dependent on other variables, the volume can only be approixmated.
+        dependent on other variables, the volume can only be approximated.
         Therefore one can set here a exact expression for the volume, if known.
         """
         self._user_volume = DomainUserFunction(volume)
@@ -91,7 +91,7 @@ class Domain:
         Parameters
         ----------
         params : torchphysics.problem.Points, optional
-            Additional paramters that are needed to evaluate the domain.
+            Additional parameters that are needed to evaluate the domain.
 
         Returns
         -------
@@ -211,7 +211,7 @@ class Domain:
 
     @abc.abstractmethod
     def sample_grid(self, n=None, d=None, params=Points.empty(), device="cpu"):
-        """Creates an equdistant grid in the domain.
+        """Creates an equidistant grid in the domain.
 
         Parameters
         ----------
@@ -221,7 +221,7 @@ class Domain:
             The density of points that should be created, if
             n is not defined.
         params : torchphysics.problem.Points, optional
-            Additional paramters that are maybe needed to evaluate the domain.
+            Additional parameters that are maybe needed to evaluate the domain.
         device : str
             The device on which the points should be created.
             Default is 'cpu'.
@@ -247,7 +247,7 @@ class Domain:
             The density of points that should be created, if
             n is not defined.
         params : torchphysics.problem.Points, optional
-            Additional paramters that are maybe needed to evaluate the domain.
+            Additional parameters that are maybe needed to evaluate the domain.
         device : str
             The device on which the points should be created.
             Default is 'cpu'.

@@ -11,8 +11,8 @@ class GRFFunctionSet(DiscreteFunctionSet):
     Parameters
     ----------
     resolution : int, tuple, list
-        The resolution of the gausian random field. For higher dimensional
-        fields a tuple or list must be passed in setting the resoultion
+        The resolution of the Gaussian random field. For higher dimensional
+        fields a tuple or list must be passed in setting the resolution
         for each dimension. Each resolution needs to be even.
     auto_cov_fn : callable, optional
         The function describing the correlation between the points in the

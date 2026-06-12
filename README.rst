@@ -80,7 +80,7 @@ to have a look at the following sections:
 
 Installation
 ============
-TorchPhysics reqiueres the follwing dependencies to be installed: 
+TorchPhysics requires the following dependencies to be installed: 
 
 - Python >= 3.8
 - PyTorch_ >= 2.0.0
@@ -122,7 +122,7 @@ at the Robert Bosch GmbH, for support and supervision while creating this librar
 
 Contribute
 ==========
-If you are missing a feature or detect a bug or unexpected behaviour while using this library, feel free to open
+If you are missing a feature or detect a bug or unexpected behavior while using this library, feel free to open
 an issue or a pull request in GitHub_ or contact the authors. Since we developed the code as a student project
 during a seminar, we cannot guarantee every feature to work properly. However, we are happy about all contributions
 since we aim to develop a reliable code basis and extend the library to include other approaches.

@@ -109,7 +109,7 @@ def test_datacondition_forward_2():
                                Points(torch.tensor([[0.0], [2.0]]), R1('u'))),
                               batch_size=1)
     cond = DataCondition(module=module, dataloader=loader,
-                         norm=2, relative=False, use_full_dataset=True)
+                         norm=2, relative=False, use_full_dataset=True, root=2.0)
     out = cond()
     assert out == 1.0
 

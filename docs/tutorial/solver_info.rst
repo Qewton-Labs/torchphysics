@@ -10,7 +10,7 @@ There, the behavior of the TorchPhysics ``Solver`` is explained and shown.
 Here we rather want to mention some more details for the trainings process.
 
 In general, most of the capabilities of Pytorch Lightning can also be used inside 
-TorchPhysics. All possiblities can be checked in the `Lightning documentation`_.
+TorchPhysics. All possibilities can be checked in the `Lightning documentation`_.
 
 .. _`beginning example`: solve_pde.html
 .. _`Lightning documentation`: https://pytorch-lightning.readthedocs.io/en/stable/common/trainer.html

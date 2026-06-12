@@ -23,7 +23,7 @@ class PlotSampler(PointSampler):
     n_points : int, optional
         The number of points that should be used for the plot.
     density : float, optional
-        The desiered density of the created points.
+        The desired density of the created points.
     device : str or torch device, optional
         The device of the model/function.
     data_for_other_variables : dict or torchphysics.spaces.Points, optional
@@ -156,7 +156,7 @@ class AnimationSampler(PlotSampler):
     n_points : int, optional
         The number of points that should be used for the plot domain.
     density : float, optional
-        The desiered density of the created points, in the plot domain.
+        The desired density of the created points, in the plot domain.
     device : str or torch device, optional
         The device of the model/function.
     data_for_other_variables : dict, optional
@@ -185,7 +185,7 @@ class AnimationSampler(PlotSampler):
         self._check_correct_types(animation_domain)
         self.frame_number = frame_number
         self.animation_domain = animation_domain(**data_for_other_variables)
-        self.animatoin_sampler = self._construct_sampler_for_Interval(
+        self.animation_sampler = self._construct_sampler_for_Interval(
             self.animation_domain, n=frame_number
         )
 
@@ -207,13 +207,13 @@ class AnimationSampler(PlotSampler):
 
     @property
     def animation_key(self):
-        """Retunrs the name of the animation variable"""
+        """Returns the name of the animation variable"""
         ani_key = list(self.animation_domain.space.keys())[0]
         return ani_key
 
     def sample_animation_points(self):
         """Samples points out of the animation domain, e.g. time interval."""
-        ani_points = self.animatoin_sampler.sample_points()
+        ani_points = self.animation_sampler.sample_points()
         num_of_points = len(ani_points)
         self.frame_number = num_of_points
         self._set_device_and_grad_true(ani_points)

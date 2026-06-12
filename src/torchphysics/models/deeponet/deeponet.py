@@ -77,7 +77,7 @@ class DeepONet(Model):
             The inputs for the trunk net.
             If no input is passed in, the default values from the trunk net are used.
         branch_inputs : callable, torchphysics.domains.FunctionSet, optional
-            The function(s) for which the branch should be evaluaded. If no
+            The function(s) for which the branch should be evaluated. If no
             input is given, the branch net has to be fixed before hand!
         device : str, optional
             The device where the data lays. Default is 'cpu'.
@@ -121,7 +121,7 @@ class DeepONet(Model):
         Parameters
         ----------
         function : callable, torchphysics.domains.FunctionSet
-            The function(s) for which the branch should be evaluaded.
+            The function(s) for which the branch should be evaluated.
         device : str, optional
             The device where the data lays. Default is 'cpu'.
         """

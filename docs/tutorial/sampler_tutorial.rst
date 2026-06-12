@@ -6,7 +6,7 @@ in these domains. This task is handled by the **PointSampler**-class. Different 
 are implemented, for example:
 
 - ``RandomUniformSampler``: samples uniform randomly distributed points, in the given domain.
-  To assure a efficent sampling, every domain implements are method to create random points.
+  To assure a efficient sampling, every domain implements are method to create random points.
 - ``GridSampler``: samples a uniform point grid, in the given domain. Just like the 
   ``RandomUniformSampler`` loosely coupled with the domains, for efficiency.
 - ``GaussianSampler``: creates points with a normal/Gaussian distribution.

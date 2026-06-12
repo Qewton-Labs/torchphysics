@@ -5,7 +5,7 @@ import torch
 integer_dtypes = [torch.uint8, torch.int8, torch.int16, torch.int32, torch.int, torch.int64, torch.long]
 
 class FunctionSet():
-    """ A function set describes a specfic type of functions that can be used 
+    """ A function set describes a specific type of functions that can be used 
     for creating data for training different operator approaches.
 
     Parameters
@@ -172,19 +172,19 @@ class FunctionSet():
             return FunctionSetAdd(self.function_space, [self, other])
 
     def __sub__(self, other):
-        """ Performs the "pointwise" substraction of two function sets.
+        """ Performs the "pointwise" subtraction of two function sets.
 
         Parameters
         ----------
-            The other function set that should be substracted from this one.
+            The other function set that should be subtracted from this one.
 
         Returns
         -------
-        tp.domains.FunctionSetSubstract
+        tp.domains.FunctionSetSubtract
             The function sets that computes the difference of the inputs.
         """
-        from .functionset_operations import FunctionSetSubstract
-        return FunctionSetSubstract(self.function_space, [self, other])
+        from .functionset_operations import FunctionSetSubtract
+        return FunctionSetSubtract(self.function_space, [self, other])
 
     def _transform_locations(self, locations):
         # TODO: Improve this for general location shapes
@@ -232,10 +232,10 @@ class DiscreteFunctionSet(FunctionSet):
         Parameters
         ----------
         components : int
-            The number of components that should be keeped in the PCA.
+            The number of components that should used in the PCA.
         normalize_data : bool, optional
             If the data of the function set should be normalized before the
-            PCA is computed (recommented). Default is true.
+            PCA is computed (recommended). Default is true.
             Note, the normalization is only applied during this method and 
             not saved afterwards, therefore the underlying data in this function
             set is **not** modified!
@@ -254,7 +254,7 @@ class DiscreteFunctionSet(FunctionSet):
     @property
     def principal_components(self):
         """ Returns the principal components of this function set.
-        It is requiered to first call 'compute_pca' to compute them and set
+        It is required to first call 'compute_pca' to compute them and set
         a number n of the used components.
 
         Returns
@@ -379,6 +379,6 @@ class DiscretizedFunctionSet(DiscreteFunctionSet):
             return FunctionSetProduct(self.function_space*other.function_space, [self, other])
         else:
             Warning(f"""DiscretizedFunctionSet is multiplied with a continuous FunctionSet.
-                    The continuous FunctionSet will be discrtized to create the product.""")
+                    The continuous FunctionSet will be discretized to create the product.""")
             other_discrete = other.discretize(self.locations)
             return FunctionSetProduct(self.function_space*other.function_space, [self, other_discrete])

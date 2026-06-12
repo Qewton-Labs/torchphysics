@@ -51,7 +51,7 @@ that one has to only evaluate the function once and then can create arbitrary de
 
 .. code-block:: python 
 
-  # Therefore comput now the outputs:
+  # Therefore compute now the outputs:
   out = f(x, t)
 
 Let us compute the gradient and laplacian:

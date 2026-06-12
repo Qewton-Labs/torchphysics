@@ -61,7 +61,7 @@ class Point(Domain):
         bounds = []
         for i in range(self.space.dim):
             p = self.point.fun[i]
-            # substract/add a value to get a real bounding box,
+            # subtract/add a value to get a real bounding box,
             # important if we later use these values to normalize the input
             bounds.append(p - self.bounding_box_tol)
             bounds.append(p + self.bounding_box_tol)

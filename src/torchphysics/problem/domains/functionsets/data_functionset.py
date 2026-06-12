@@ -6,7 +6,7 @@ from ...spaces import Points
 
 class DataFunctionSet(DiscreteFunctionSet):
     """FunctionSet that is created from a given data set.
-    This function set is always a discret set, since the data can not
+    This function set is always a discrete set, since the data can not
     be evaluated at arbitrary points.
     
     Parameters

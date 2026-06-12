@@ -123,6 +123,7 @@ class DataCondition(Condition):
         use_full_dataset=False,
         name="datacondition",
         constrain_fn=None,
+        root=1.0,
         weight=1.0,
         epsilon=1e-8,
     ):
@@ -134,6 +135,7 @@ class DataCondition(Condition):
         self.use_full_dataset = use_full_dataset
         self.constrain_fn = constrain_fn
         self.epsilon = epsilon
+        self.root = root
         if self.constrain_fn:
             self.constrain_fn = UserFunction(self.constrain_fn)
 
@@ -152,14 +154,14 @@ class DataCondition(Condition):
                 y_norm =  torch.max(torch.abs(y.as_tensor), dim=list(range(1, len(model_out.shape)))) + self.epsilon
                 out = out_norm / y_norm
             else:
-                out_norm = torch.norm(model_out - y.as_tensor, p=self.norm, dim=list(range(1, len(model_out.shape))))
-                y_norm = torch.norm(y.as_tensor, p=self.norm, dim=list(range(1, len(model_out.shape)))) + self.epsilon
+                out_norm = torch.sum(torch.abs(model_out - y.as_tensor)**self.norm, dim=list(range(1, len(model_out.shape))))
+                y_norm = torch.sum(torch.abs(y.as_tensor)**self.norm, dim=list(range(1, len(model_out.shape)))) + self.epsilon
                 out = out_norm / y_norm
         else:
             if self.norm == "inf":
                 out = torch.abs(model_out - y.as_tensor)
             else:
-                out = torch.norm(model_out - y.as_tensor, p=self.norm, dim=list(range(1, len(model_out.shape))))
+                out = torch.sum(torch.abs(model_out - y.as_tensor)**self.norm, dim=list(range(1, len(model_out.shape))))
         return out
 
     def forward(self, device="cpu", iteration=None):
@@ -170,7 +172,10 @@ class DataCondition(Condition):
                 if self.norm == "inf":
                     loss = torch.maximum(loss, torch.max(a))
                 else:
-                    loss = loss + torch.mean(a) / len(self.dataloader)
+                    a_mean = torch.mean(a)
+                    if self.root != 1.0:
+                        a_mean = a_mean**(1/self.root)
+                    loss = loss + a_mean / len(self.dataloader)
         else:
             try:
                 batch = next(self.iterator)
@@ -182,6 +187,8 @@ class DataCondition(Condition):
                 loss = torch.max(a)
             else:
                 loss = torch.mean(a)
+                if self.root != 1.0:
+                    loss = loss**(1.0/self.root)
         return loss
 
 

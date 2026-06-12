@@ -90,7 +90,7 @@ class BranchNet(Model):
         ----------
         function : callable, torchphysics.domains.FunctionSet, torch.Tensor,
                     torchphysics.spaces.Points
-            The function(s) for which the network should be evaluaded.
+            The function(s) for which the network should be evaluated.
         device : str, optional
             The device where the data lays. Default is 'cpu'.
 
@@ -147,12 +147,12 @@ class FCBranchNet(BranchNet):
         times the function space dimension.
     hidden : list or tuple
         The number and size of the hidden layers of the neural network.
-        The lenght of the list/tuple will be equal to the number
+        The length of the list/tuple will be equal to the number
         of hidden layers, while the i-th entry will determine the number
         of neurons of each layer.
     activations : torch.nn or list, optional
         The activation functions of this network.
-        Deafult is nn.Tanh().
+        Default is nn.Tanh().
     xavier_gains : float or list, optional
         For the weight initialization a Xavier/Glorot algorithm will be used.
         Default is 5/3.
@@ -217,12 +217,12 @@ class ConvBranchNet(BranchNet):
 
     hidden : list or tuple
         The number and size of the hidden layers of the neural network.
-        The lenght of the list/tuple will be equal to the number
+        The length of the list/tuple will be equal to the number
         of hidden layers, while the i-th entry will determine the number
         of neurons of each layer.
     activations : torch.nn or list, optional
         The activation functions of this network.
-        Deafult is nn.Tanh().
+        Default is nn.Tanh().
     xavier_gains : float or list, optional
         For the weight initialization a Xavier/Glorot algorithm will be used.
         Default is 5/3.

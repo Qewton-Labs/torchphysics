@@ -66,7 +66,7 @@ class PointSampler:
 
     def __iter__(self):
         """Creates a iterator of this Pointsampler, with *next* the ``sample_points``
-        methode can be called.
+        method can be called.
         """
         return self
 
@@ -80,8 +80,8 @@ class PointSampler:
         Note
         ----
         This can be only called if the number of points is set with ``n_points``.
-        Elsewise the the number can only be known after the first call to
-        ``sample_points`` methode or may even change after each call.
+        Else the number can only be known after the first call to
+        ``sample_points`` method or may even change after each call.
         If you know the number of points yourself, you can set this with
         ``.set_length``.
         """
@@ -101,7 +101,7 @@ class PointSampler:
         points the first time .sample_points() is called. Afterwards the points
         are saved and will always be returned if .sample_points() is called again.
         Useful if the same points should be used while training/validation
-        or if it is not practicall to create new points in each iteration
+        or if it is not practical to create new points in each iteration
         (e.g. grid points).
 
         Parameters
@@ -115,7 +115,7 @@ class PointSampler:
 
     @property
     def is_static(self):
-        """Checks if the Sampler is a ``StaticSampler``, e.g. retuns always the
+        """Checks if the Sampler is a ``StaticSampler``, e.g. returns always the
         same points.
         """
         return isinstance(self, StaticSampler)
@@ -182,7 +182,7 @@ class PointSampler:
         return AppendSampler(self, other)
 
     def _sample_params_independent(self, sample_function, params, device):
-        """If the domain is independent of the used params it is more efficent
+        """If the domain is independent of the used params it is more efficient
         to sample points once and then copy them accordingly.
         """
         points = sample_function(n=self.n_points, d=self.density, device=device)
@@ -196,7 +196,7 @@ class PointSampler:
     def _sample_params_dependent(self, sample_function, params, device):
         """If the domain is dependent on some params, we can't always sample points
         for all params at once. Therefore we need a loop to iterate over the params.
-        This happens for example with denstiy sampling or grid sampling.
+        This happens for example with density sampling or grid sampling.
         """
         num_of_params = max(1, len(params))
         sample_points = None
@@ -250,7 +250,7 @@ class PointSampler:
 
 class ProductSampler(PointSampler):
     """A sampler that constructs the product of two samplers.
-    Will create a meshgrid (Cartesian product) of the data points of both samplers.
+    Will create a mesh grid (Cartesian product) of the data points of both samplers.
 
     Parameters
     ----------
@@ -304,7 +304,7 @@ class ConcatSampler(PointSampler):
 
 class AppendSampler(PointSampler):
     """A sampler that appends the output of two samplers behind each other.
-    Essentially calling torch.coloumn_stack for the data points.
+    Essentially calling torch.column_stack for the data points.
 
     Parameters
     ----------
@@ -399,7 +399,7 @@ class AdaptiveSampler(PointSampler):
     """
 
     def sample_points(self, unreduced_loss, params=Points.empty(), device="cpu"):
-        """Extends the sample methode of the parent class. Also requieres the
+        """Extends the sample method of the parent class. Also requires the
         unreduced loss of the previous iteration to create the new points.
 
         Parameters

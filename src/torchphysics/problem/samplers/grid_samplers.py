@@ -20,7 +20,7 @@ class GridSampler(PointSampler):
     n_points : int, optional
         The number of points that should be sampled.
     density : float, optional
-        The desiered density of the created points.
+        The desired density of the created points.
     filter_fn : callable, optional
         A function that restricts the possible positions of sample points.
         A point that is allowed should return True, therefore a point that should be
@@ -106,7 +106,7 @@ class GridSampler(PointSampler):
 
 
 class ExponentialIntervalSampler(PointSampler):
-    """Will sample non equdistant grid points in the given interval.
+    """Will sample non equidistant grid points in the given interval.
     This works only on intervals!
 
     Parameters
@@ -116,7 +116,7 @@ class ExponentialIntervalSampler(PointSampler):
     n_points : int
         The number of points that should be sampled.
     exponent : Number
-        Determines how non equdistant the points are and at which corner they
+        Determines how non equidistant the points are and at which corner they
         are accumulated. They are computed with a grid in [0, 1]
         and then transformed with the exponent and later scaled/translated:
             exponent < 1: More points at the upper bound.

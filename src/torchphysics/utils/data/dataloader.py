@@ -19,7 +19,7 @@ class PointsDataset(torch.utils.data.Dataset):
     shuffle : bool
         Whether to shuffle the order of the data points at initialization.
     drop_last : bool
-        Whether to drop the last (and non-batch-size-) minibatch.
+        Whether to drop the last (and non-batch-size-) mini batch.
     """
 
     def __init__(self, data_points, batch_size, shuffle=False, drop_last=False):
@@ -62,7 +62,7 @@ class PointsDataset(torch.utils.data.Dataset):
 
 class PointsDataLoader(torch.utils.data.DataLoader):
     """
-    A DataLoader that can be used in a condition to load minibatches of paired data
+    A DataLoader that can be used in a condition to load mini batches of paired data
     points as the input and output of a model.
 
     Parameters
@@ -80,7 +80,7 @@ class PointsDataLoader(torch.utils.data.DataLoader):
     pin_memory : bool
         Whether to use pinned memory during data loading, see also: the PyTorch documentation
     drop_last : bool
-        Whether to drop the last (and non-batch-size-) minibatch.
+        Whether to drop the last (and non-batch-size-) mini batch.
     """
 
     def __init__(

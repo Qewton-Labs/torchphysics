@@ -13,7 +13,7 @@ class FunctionSampler:
         The number of functions that should be sampled when calling sample_functions.
     function_set : tp.domains.FunctionSet
         The function set from which functions should be sampled. Note that the size of the
-        functions set needs to be larger or eqaul to n_functions.
+        functions set needs to be larger or equal to n_functions.
     function_creation_interval : int, optional
         functions set needs to be larger or equal to n_functions.
     function_creation_interval : int
@@ -76,21 +76,21 @@ class FunctionSamplerOrdered(FunctionSampler):
     def __init__(self, n_functions, function_set : FunctionSet, function_creation_interval : int = 0):
         super().__init__(n_functions, function_set, function_creation_interval)
         self.current_indices = torch.arange(self.n_functions, dtype=torch.int64)
-        self.new_indieces = torch.zeros_like(self.current_indices, dtype=torch.int64)
+        self.new_indices = torch.zeros_like(self.current_indices, dtype=torch.int64)
 
 
     def sample_functions(self, device="cpu"):
         self._check_recreate_functions(device=device)
-        self.current_indices = self.new_indieces.clone()
+        self.current_indices = self.new_indices.clone()
         current_out = self.function_set.get_function(self.current_indices)
-        self.new_indieces = (self.current_indices + self.n_functions) % self.function_set.function_set_size
+        self.new_indices = (self.current_indices + self.n_functions) % self.function_set.function_set_size
         return current_out
 
 
 class FunctionSamplerCoupled(FunctionSampler):
     """ A sampler that is coupled to another sampler, such that the same indices 
     of functions are sampled from both samplers.
-    Can be usefull is two different data function sets are used where the data of 
+    Can be useful is two different data function sets are used where the data of 
     both sets is coupled and should therefore be samples accordingly.
     """
     def __init__(self, function_set : FunctionSet, coupled_sampler : FunctionSampler):

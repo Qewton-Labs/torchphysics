@@ -123,7 +123,7 @@ class FNO(Model):
         of a spectral convolution with learnable kernels. See [1] for an overview 
         of the model. Linear transformations and skip connections can be enabled 
         in each layer as well.
-    hidden_channles : int
+    hidden_channels : int
         The number of hidden channels.
     fourier_modes : int or list, tuple
         The number of Fourier modes that will be used for the spectral convolution
@@ -133,7 +133,7 @@ class FNO(Model):
         integers, such that in each layer a different amount of modes is used.
         In case of a N-dimensional space domain a list (or tuple) of N numbers
         must be passed in (Setting the modes for each direction), or again
-        a list of list containig each N numbers to vary the modes per layer.
+        a list of list containing each N numbers to vary the modes per layer.
     activations : torch.nn or list, tuple
         The activation function after each Fourier layer.
         Default is torch.nn.Tanh()
@@ -155,7 +155,7 @@ class FNO(Model):
         Default is a linear mapping.
     positional_embedding : torchphysics.models.PositionalEmbedding or bool
         An additional embedding layer, which adds positional information to the input.
-        Default is True, adding an embedding given the shape of fourie modes.
+        Default is True, adding an embedding given the shape of fourier modes.
     xavier_gains : int or list, tuple
         For the weight initialization a Xavier/Glorot algorithm will be used.
         The gain can be specified over this value.
@@ -198,9 +198,14 @@ class FNO(Model):
 
         if isinstance(fourier_modes, int):
             fourier_modes = fourier_layers * [fourier_modes]
-        elif isinstance(fourier_modes, (list, tuple)):
-            if len(fourier_modes) < fourier_layers:
-                fourier_modes = fourier_layers * [fourier_modes] 
+        elif all(isinstance(x, int) for x in fourier_modes):
+            fourier_modes = [list(fourier_modes) for _ in range(fourier_layers)]
+        elif all(isinstance(x, (list, tuple)) for x in fourier_modes):
+            if len(fourier_modes) != fourier_layers:
+                raise ValueError(
+                    "Number of layer mode specifications must match fourier_layers"
+                )
+            fourier_modes = [list(m) for m in fourier_modes]
         else:
             raise ValueError(f"Invalid input for fourier modes")
 
@@ -224,7 +229,7 @@ class FNO(Model):
         else:
             if positional_embedding is not None:
                 print("Note: Positional embedding is used, make sure that the network for " \
-                      f"lifiting (channel up sampling) expects inputs of size {in_channels+positional_embedding.dim}.")
+                      f"lifting (channel up sampling) expects inputs of size {in_channels+positional_embedding.dim}.")
             self.channel_up_sampling = channel_up_sample_network
 
         # combine embedding with up_sampling layer:

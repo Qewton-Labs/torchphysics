@@ -20,7 +20,7 @@ Parameters that should be learned in a inverse problem can also be easily define
 .. code-block:: python 
 
   D_space = tp.spaces.R1('D') # parameters need there own space of corresponding dimension
-  D = tp.models.Parameter(init=0.0, space=D) # here you have to pass a fitting inital guess 
+  D = tp.models.Parameter(init=0.0, space=D) # here you have to pass a fitting initial guess 
 
 That are all the basics to the creation of the networks and parameters, they could now be used in a 
 condition to then start the training.

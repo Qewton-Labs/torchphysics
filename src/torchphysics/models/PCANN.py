@@ -35,7 +35,7 @@ class PCANN(Model):
 
     Notes 
     -----
-    The default implemwentation flatten the input and output data along all 
+    The default implementation flatten the input and output data along all 
     dimensions except the first one.
 
     ..  [1] Kaushik Bhattacharya et al., "Model Reduction And Neural Networks For 
@@ -150,7 +150,7 @@ class PCANN_FC(PCANN):
         have been applied.
     hidden : list or tuple
         The number and size of the hidden layers of the neural network.
-        The lenght of the list/tuple will be equal to the number
+        The length of the list/tuple will be equal to the number
         of hidden layers, while the i-th entry will determine the number
         of neurons of each layer.
         E.g hidden = (10, 5) -> 2 layers, with 10 and 5 neurons.
@@ -158,7 +158,7 @@ class PCANN_FC(PCANN):
         The activation functions of this network. If a single function is passed
         as an input, will use this function for each layer.
         If a list is used, will use the i-th entry for i-th layer.
-        Deafult is nn.Tanh().
+        Default is nn.Tanh().
     xavier_gains : float or list, optional
         For the weight initialization a Xavier/Glorot algorithm will be used.
         The gain can be specified over this value.
@@ -203,7 +203,7 @@ class PCANN_FC(PCANN):
             data. 
         hidden : list or tuple
             The number and size of the hidden layers of the neural network.
-            The lenght of the list/tuple will be equal to the number
+            The length of the list/tuple will be equal to the number
             of hidden layers, while the i-th entry will determine the number
             of neurons of each layer.
             E.g. hidden = (10, 5) -> 2 layers, with 10 and 5 neurons.
@@ -211,7 +211,7 @@ class PCANN_FC(PCANN):
             The activation functions of this network. If a single function is passed
             as an input, will use this function for each layer.
             If a list is used, will use the i-th entry for i-th layer.
-            Deafult is nn.Tanh().
+            Default is nn.Tanh().
         xavier_gains : float or list, optional
             For the weight initialization a Xavier/Glorot algorithm will be used.
             The gain can be specified over this value.

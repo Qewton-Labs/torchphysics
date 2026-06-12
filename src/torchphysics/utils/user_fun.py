@@ -1,5 +1,5 @@
 """Contains a class which extracts the needed arguments of an arbitrary 
-methode/function and wraps them for future usage. E.g correctly choosing 
+method/function and wraps them for future usage. E.g correctly choosing 
 the needed arguments and passing them on to the original function.
 """
 
@@ -78,7 +78,7 @@ class UserFunction:
         #    self.defaults.update(f_kwonlydefaults)
 
     def __call__(self, args={}, vectorize=False):
-        """To evalute the function. Will automatically extract the needed arguments
+        """To evaluate the function. Will automatically extract the needed arguments
         from the input data and will set the possible default values.
 
         Parameters
@@ -113,7 +113,7 @@ class UserFunction:
 
     def evaluate_function(self, **inp):
         """Evaluates the original input function. Should not be used directly,
-        rather use the call-methode.
+        rather use the call-method.
         """
         if callable(self.fun):
             return self.fun(**inp)
@@ -160,7 +160,7 @@ class UserFunction:
         Returns
         -------
         Out : value or UserFunction
-            If the input arguments are enough to evalate the whole function, the
+            If the input arguments are enough to evaluate the whole function, the
             corresponding output is returned.
             If some needed arguments are missing, a copy of this UserFunction will
             be returned. Whereby the values of **args will be added to the
@@ -269,7 +269,7 @@ class DomainUserFunction(UserFunction):
     """
 
     def __call__(self, args={}, device="cpu"):
-        """To evalute the function. Will automatically extract the needed arguments
+        """To evaluate the function. Will automatically extract the needed arguments
         from the input data and will set the possible default values.
 
         Parameters
@@ -277,7 +277,7 @@ class DomainUserFunction(UserFunction):
         args : dict or torchphysics.Points
             The input data, where the function should be evaluated.
         device : str, optional
-            The device on which the output of th efunction values should lay.
+            The device on which the output of the function values should lay.
             Default is 'cpu'.
 
         Returns
@@ -301,12 +301,12 @@ class DomainUserFunction(UserFunction):
 
     def evaluate_function(self, device="cpu", **inp):
         """Evaluates the original input function. Should not be used directly,
-        rather use the call-methode.
+        rather use the call-method.
 
         Parameters
         ----------
         device : str, optional
-            The device on which the output of th efunction values should lay.
+            The device on which the output of the function values should lay.
             Default is 'cpu'.
         inp
             The input values.

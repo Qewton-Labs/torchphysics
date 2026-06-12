@@ -130,7 +130,7 @@ class Sequential(Model):
     *models :
         The models that should be evaluated sequentially. The evaluation
         happens in the order that the models are passed in.
-        To work correcty the output of the i-th model has to fit the input
+        To work correctly the output of the i-th model has to fit the input
         of the i+1-th model.
     """
 

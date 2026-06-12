@@ -7,7 +7,7 @@ from ..problem.spaces import Points
 
 class Quadratic(nn.Module):
     """Implements a quadratic layer of the form:  W_1*x (*) W_2*x + W_1*x + b.
-    Here (*) means the hadamard product of two vectors (elementwise multiplication).
+    Here (*) means the hadamard product of two vectors (element-wise multiplication).
     W_1, W_2 are weight matrices and b is a bias vector.
 
     Parameters
@@ -55,7 +55,7 @@ class QRES(Model):
     """Implements the quadratic residual networks from [#]_.
     Instead of a linear layer, a quadratic layer W_1*x (*) W_2*x + W_1*x + b
     will be used. Here (*) means the hadamard product of two vectors
-    (elementwise multiplication).
+    (element-wise multiplication).
 
     Parameters
     ----------
@@ -65,7 +65,7 @@ class QRES(Model):
         The space of the points returned by this model.
     hidden : list or tuple
         The number and size of the hidden layers of the neural network.
-        The lenght of the list/tuple will be equal to the number
+        The length of the list/tuple will be equal to the number
         of hidden layers, while the i-th entry will determine the number
         of neurons of each layer.
         E.g hidden = (10, 5) -> 2 layers, with 10 and 5 neurons.
@@ -73,7 +73,7 @@ class QRES(Model):
         The activation functions of this network. If a single function is passed
         as an input, will use this function for each layer.
         If a list is used, will use the i-th entry for i-th layer.
-        Deafult is nn.Tanh().
+        Default is nn.Tanh().
     xavier_gains : float or list, optional
         For the weight initialization a Xavier/Glorot algorithm will be used.
         The gain can be specified over this value.

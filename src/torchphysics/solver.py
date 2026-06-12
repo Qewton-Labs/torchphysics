@@ -40,7 +40,7 @@ class Solver(pl.LightningModule):
         losses will be computed and minimized.
     val_conditions : tuple or list
         Conditions to be tracked during the validation part of the training, can
-        be used e.g. to track errors comparede to measured data.
+        be used e.g. to track errors compared to measured data.
     optimizer_setting : OptimizerSetting
         A OptimizerSetting object that contains all necessary parameters for
         optimizing, see :class:`OptimizerSetting`.
@@ -104,7 +104,7 @@ class Solver(pl.LightningModule):
             self.log(f"train/{condition.name}", cond_loss)
             loss = loss + condition.weight * cond_loss
 
-        self.log('train/loss', loss, prog_bar=True)
+        self.log('train/loss', loss.item(), prog_bar=True)
         self.n_training_step += 1
         return loss
 

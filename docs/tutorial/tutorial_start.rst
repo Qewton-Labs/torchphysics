@@ -43,7 +43,7 @@ Conditions
 
 Solver
   Handles the training of the defined model, by applying the previously created conditions.
-  The usage of the solver is shown the beginnig example for `solving a simple PDE`_. More details
+  The usage of the solver is shown the beginning example for `solving a simple PDE`_. More details
   of the trainings process are mentioned here_.
 
 .. _here: solver_info.html

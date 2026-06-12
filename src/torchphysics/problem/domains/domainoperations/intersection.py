@@ -128,7 +128,7 @@ class IntersectionBoundaryDomain(BoundaryDomain):
     def _get_volume(self, params=Points.empty(), device="cpu"):
         warnings.warn(
             """Exact volume of this intersection-boundary is not known,
-                         will use the estimate: volume = boundary_a + bounadry_b.
+                         will use the estimate: volume = boundary_a + boundary_b.
                          If you need the exact volume for sampling,
                          use domain.set_volume()"""
         )

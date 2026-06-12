@@ -85,10 +85,10 @@ equation itself and the boundary condition. Here, we start with the boundary con
         bound_values = torch.sin(np.pi/2*x[:, :1]) * torch.cos(2*np.pi*x[:, 1:])
         return u - bound_values
 
-    # the point sampler, for the trainig points:
+    # the point sampler, for the training points:
     # here we use grid points any other sampler could also be used
     bound_sampler = tp.samplers.GridSampler(square.boundary, n_points=5000)
-    bound_sampler = bound_sampler.make_static() # grid always the same, therfore static for one single computation
+    bound_sampler = bound_sampler.make_static() # grid always the same, therefore static for one single computation
 
 Once all this is defined, we have to combine the residual and sampler in a ``condition``. 
 These condition handle internally the training process. 
@@ -118,7 +118,7 @@ They can be found under the ``utils`` section.
     def pde_residual(u, x):
         return tp.utils.laplacian(u, x) + 4.25*np.pi**2*u
 
-    # the point sampler, for the trainig points:
+    # the point sampler, for the training points:
     pde_sampler = tp.samplers.GridSampler(square, n_points=15000) # again point grid 
     pde_sampler = pde_sampler.make_static()
     # wrap everything together in the condition

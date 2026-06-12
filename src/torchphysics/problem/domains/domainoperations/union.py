@@ -66,7 +66,7 @@ class UnionDomain(Domain):
     ):
         if n:
             return self._sample_random_with_n(n, params, device)
-        # esle d not None
+        # else d not None
         return self._sample_random_with_d(d, params, device)
 
     def _sample_random_with_n(self, n, params=Points.empty(), device="cpu"):
@@ -195,9 +195,9 @@ class UnionBoundaryDomain(BoundaryDomain):
         if not self.domain.disjoint:
             warnings.warn(
                 """Exact volume of this domain is not known, will use the
-                             estimate: volume = domain_a.volume + domain_b.volume.
-                             If you need the exact volume for sampling,
-                             use domain.set_volume()"""
+                    estimate: volume = domain_a.volume + domain_b.volume.
+                    If you need the exact volume for sampling,
+                    use domain.set_volume()"""
             )
         volume_a = self.domain.domain_a.boundary.volume(params, device=device)
         volume_b = self.domain.domain_b.boundary.volume(params, device=device)

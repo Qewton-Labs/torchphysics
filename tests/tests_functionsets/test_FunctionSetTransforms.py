@@ -3,7 +3,7 @@ import pytest
 
 from torchphysics.problem.domains.functionsets import FunctionSet
 from torchphysics.problem.domains.functionsets.functionset_operations import (
-        FunctionSetAdd, FunctionSetSubstract, FunctionSetTransform
+        FunctionSetAdd, FunctionSetSubtract, FunctionSetTransform
     )
 from torchphysics.problem.spaces import R1, R2, FunctionSpace, Points
 from torchphysics.problem.domains.functionsets import CustomFunctionSet
@@ -50,7 +50,7 @@ def test_create_fn_set_substract():
     fn_set = FunctionSet(space, 100)
     fn_set2 = FunctionSet(space, 100)
     fn_set -= fn_set2
-    assert isinstance(fn_set, FunctionSetSubstract)
+    assert isinstance(fn_set, FunctionSetSubtract)
     assert fn_set.function_space == space
     assert fn_set.function_set_size == 100
 
@@ -67,7 +67,7 @@ def test_create_fn_set_sum_and_substract():
     assert fn_set4.function_set_size == 100
 
     fn_set4 = fn_set3 - fn_set
-    assert isinstance(fn_set4, FunctionSetSubstract)
+    assert isinstance(fn_set4, FunctionSetSubtract)
     assert fn_set4.function_space == space
     assert fn_set4.function_set_size == 100
 

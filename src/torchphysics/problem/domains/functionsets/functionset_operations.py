@@ -249,9 +249,9 @@ class FunctionSetAdd(FunctionSetArithmetics):
                                     self.function_sets + [other])
         
 
-class FunctionSetSubstract(FunctionSetArithmetics):
+class FunctionSetSubtract(FunctionSetArithmetics):
     """
-    A class handling the pointwise substraction of two sets.
+    A class handling the pointwise subtraction of two sets.
     """
     def arithmetic_function(self, data):
         # data will be always only two different function sets
@@ -259,7 +259,7 @@ class FunctionSetSubstract(FunctionSetArithmetics):
         return Points(output, self.function_space.output_space)
 
     def discretize(self, locations):
-        return FunctionSetSubstract(self.function_space, 
+        return FunctionSetSubtract(self.function_space, 
                     [f.discretize(locations) for f in self.function_sets])
     
 

@@ -84,8 +84,7 @@ class PlotterCallback(Callback):
     Parameters
     ----------
     plot_function : callable
-        A function that specfices the part of the model that should be plotted.
-        A function that specfices the part of the model that should be plotted.
+        A function that specifies the part of the model that should be plotted.
     point_sampler : torchphysics.samplers.PlotSampler
         A sampler that creates the points that should be used for the plot.
     log_interval : str, optional
@@ -98,7 +97,7 @@ class PlotterCallback(Callback):
         Specifies how the output should be plotted. If no input is given, the method
         will try to use a fitting way, to show the data. See also plot-functions.
     kwargs:
-        Additional arguments to specify different parameters/behaviour of
+        Additional arguments to specify different parameters/behavior of
         the plot. See https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
         for possible arguments of each underlying object.
     """

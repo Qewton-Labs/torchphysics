@@ -15,7 +15,7 @@ class ShapelyPolygon(Domain):
     space : Space
         The space in which this object lays.
     vertices : list of lists, optional
-        The corners/vertices of the polygon. Can be eihter in clockwise or counter-
+        The corners/vertices of the polygon. Can be either in clockwise or counter-
         clockwise order.
     shapely_polygon : shapely.geometry.Polygon, optional
         Instead of defining the corner points, it is also possible to give a already
@@ -90,7 +90,7 @@ class ShapelyPolygon(Domain):
         if n > 0:
             new_points = self._random_points_in_triangle(n, corners, device)
             # when the polygon has holes or is non convex, it can happen
-            # that the triangle is not completly in the polygon
+            # that the triangle is not completely in the polygon
             if not t.within(self.polygon):
                 inside = self._contains(new_points)
                 index = torch.where(inside)[0]
@@ -247,7 +247,7 @@ class ShapelyBoundary(BoundaryDomain):
         side_length = torch.linalg.norm(corners[1] - corners[0])
         while index < len(line_points):
             if line_points[index] <= current_length + side_length:
-                point = self._translate_point_to_bondary(
+                point = self._translate_point_to_boundary(
                     index,
                     line_points,
                     corners,
@@ -267,7 +267,7 @@ class ShapelyBoundary(BoundaryDomain):
                 )
         return points, index, current_length
 
-    def _translate_point_to_bondary(
+    def _translate_point_to_boundary(
         self, index, line_points, corners, current_length, corner_index, side_length
     ):
         coord = line_points[index] - current_length

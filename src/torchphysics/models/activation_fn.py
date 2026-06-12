@@ -12,8 +12,8 @@ class AdaptiveActivationFunction(nn.Module):
     ----------
     activation_fn : torch.nn.module
         The underlying function that should be used for the activation.
-    inital_a : float, optional
-        The inital value for the adaptive parameter a. Changes the 'slop'
+    initial_a : float, optional
+        The initial value for the adaptive parameter a. Changes the 'slop'
         of the underlying function. Default is 1.0
     scaling : float, optional
         An additional scaling factor, such that the 'a' only has to learn only
@@ -26,10 +26,10 @@ class AdaptiveActivationFunction(nn.Module):
         physics-informed neural networks", 2020
     """
 
-    def __init__(self, activation_fn, inital_a=1.0, scaling=1.0):
+    def __init__(self, activation_fn, initial_a=1.0, scaling=1.0):
         super().__init__()
         self.activation_fn = activation_fn
-        self.a = nn.Parameter(torch.tensor(inital_a))
+        self.a = nn.Parameter(torch.tensor(initial_a))
         self.scaling = scaling
 
     def forward(self, x):
@@ -62,7 +62,7 @@ class ReLUn(nn.Module):
     Parameters
     ----------
     n : float
-        The power to which the inputs should be rasied before appplying the
+        The power to which the inputs should be raised before applying the
         rectified linear unit function.
     """
 

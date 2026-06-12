@@ -31,7 +31,7 @@ class ProductDomain(Domain):
         if not self.domain_a.space.keys().isdisjoint(self.domain_b.space):
             warnings.warn(
                 """Warning: The space of a ProductDomain will be the product
-                of its factor domains spaces. This may lead to unexpected behaviour."""
+                of its factor domains spaces. This may lead to unexpected behavior."""
             )
         # check dependencies, so that at most domain_a needs variables of domain_b
         self._check_variable_dependencies()
@@ -100,7 +100,7 @@ class ProductDomain(Domain):
     @property
     def boundary(self):
         # Domain object of the boundary
-        # TODO: implement a seperate class for this for normals etc.
+        # TODO: implement a separate class for this for normals etc.
         boundary_1 = ProductDomain(self.domain_a.boundary, self.domain_b)
         boundary_2 = ProductDomain(self.domain_a, self.domain_b.boundary)
         return UnionDomain(boundary_1, boundary_2)
@@ -116,7 +116,7 @@ class ProductDomain(Domain):
         Parameters
         ----------
         bounds : list
-            The bounding box of the domain. Whereby the lenght of the list
+            The bounding box of the domain. Whereby the length of the list
             has to be two times the domain dimension. And the bounds need to be in the
             following order: [min_axis_1, max_axis_1, min_axis_2, max_axis_2, ...]
         """
@@ -124,7 +124,7 @@ class ProductDomain(Domain):
         self.bounds = bounds
 
     def bounding_box(self, params=Points.empty(), device="cpu"):
-        if self.bounds:
+        if self.bounds is not None:
             return self.bounds
         elif self._is_constant or self.domain_b.space in params.space:
             # if the domain is constant or additional data for domain a is given
@@ -134,11 +134,11 @@ class ProductDomain(Domain):
             bounds_a = torch.cat((bounds_a, bounds_b))
         else:  # we have to sample some points in b, and approx the bounds.
             warnings.warn(
-                f"""The bounding box of the ProductDomain dependens of the
-                              values of domain_b. Therefor will sample
-                              {N_APPROX_VOLUME} in domain_b, to compute a 
-                              approixmation. If the bounds a known exactly, set 
-                              them with .set_bounds()."""
+                f"""The bounding box of the ProductDomain depends of the
+                              values of domain_b. Therefore will sample
+                              {N_APPROX_VOLUME} in domain_b, to compute an 
+                              approximation. If the bounds are known exactly, set 
+                              them with .set_bounding_box()."""
             )
             bounds_b = self.domain_b.bounding_box(params, device=device)
             b_points = self.domain_b.sample_random_uniform(
@@ -209,7 +209,7 @@ class ProductDomain(Domain):
 
     def sample_grid(self, n=None, d=None, params=Points.empty(), device="cpu"):
         raise NotImplementedError(
-            """Grid sampling on a product domain is not implmented. Use a product sampler
+            """Grid sampling on a product domain is not implemented. Use a product sampler
                instead."""
         )
 

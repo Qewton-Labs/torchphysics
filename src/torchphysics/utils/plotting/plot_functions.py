@@ -19,7 +19,7 @@ class Plotter:
     Parameters
     ----------
     plot_function : callable
-        A function that specfices the part of the model that should be plotted.
+        A function that specifies the part of the model that should be plotted.
         Can be of the same form as the condition-functions.
         E.g. if the solution name is 'u' we can use
 
@@ -35,7 +35,7 @@ class Plotter:
         A Sampler that creates the points that should be used for the
         plot.
     angle : list, optional
-        The view angle for surface plots. Standart angle is [30, 30]
+        The view angle for surface plots. Standard angle is [30, 30]
     log_interval : int
         Plots will be saved every log_interval steps if the plotter is used in
         training of a model.
@@ -46,9 +46,9 @@ class Plotter:
             - 'surface_2D' for surface plots, with a 2D-domain
             - 'curve' for a curve in 3D, with a 1D-domain,
             - 'quiver_2D' for quiver/vector field plots, with a 2D-domain
-            - 'contour_surface' for contour/colormaps, with a 2D-domain
+            - 'contour_surface' for contour/color-maps, with a 2D-domain
     kwargs:
-        Additional arguments to specify different parameters/behaviour of
+        Additional arguments to specify different parameters/behavior of
         the plot. See https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
         for possible arguments of each underlying object.
     """
@@ -108,7 +108,7 @@ def plot(
     model : torchphysics.models.Model
         The Model/neural network that should be used in the plot.
     plot_function : callable
-        A function that specfices the part of the model that should be plotted.
+        A function that specifies the part of the model that should be plotted.
         Of the same form as the condition-functions.
         E.g. if the solution name is 'u', we can use
 
@@ -126,15 +126,15 @@ def plot(
     angle : list, optional
         The view angle for 3D plots. Standard angle is [30, 30]
     plot_type : str, optional
-        Specifies how the output sholud be plotted. If no input is given the method
+        Specifies how the output should be plotted. If no input is given the method
         will try to use a fitting way to show the data. Implemented types are:
             - 'line' for plots in 1D
             - 'surface_2D' for surface plots, with a 2D-domain
             - 'curve' for a curve in 3D, with a 1D-domain,
             - 'quiver_2D' for quiver/vector-field plots, with a 2D-domain
-            - 'contour_surface' for contour/colormaps, with a 2D-domain
+            - 'contour_surface' for contour/color-maps, with a 2D-domain
     kwargs:
-        Additional arguments to specify different parameters/behaviour of
+        Additional arguments to specify different parameters/behavior of
         the plot. See https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
         for possible arguments of each underlying object.
 
@@ -147,11 +147,11 @@ def plot(
     Notes
     -----
     What this function does is:
-    creating points with sampler -> evaluate model -> evalute plot function
+    creating points with sampler -> evaluate model -> evaluate plot function
     -> create the plot with matplotlib.pyplot.
 
     The function is only meant to  give a fast overview over the trained neural network.
-    In general the methode is not optimized for complex domains.
+    In general the method is not optimized for complex domains.
     """
     if not isinstance(plot_function, UserFunction):
         plot_function = UserFunction(fun=plot_function)
@@ -260,7 +260,7 @@ def _plot_for_two_outputs(domain_dim):
 
 
 def surface2D(output, domain_points, point_sampler, angle, **kwargs):
-    """Handels surface plots w.r.t. a two dimensional variable."""
+    """Handles surface plots w.r.t. a two dimensional variable."""
     # For complex domains it is best to triangulate them for the plotting
     triangulation = _triangulation_of_domain(point_sampler.domain, domain_points)
     fig, ax = _create_figure_and_axis(angle)
@@ -276,7 +276,7 @@ def surface2D(output, domain_points, point_sampler, angle, **kwargs):
 
 
 def line_plot(output, domain_points, point_sampler, angle, **kwargs):
-    """Handels line plots w.r.t. a one dimensional variable."""
+    """Handles line plots w.r.t. a one dimensional variable."""
     fig = plt.figure()
     ax = fig.add_subplot()
     ax.grid()

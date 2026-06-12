@@ -2,12 +2,12 @@
 Spaces and points in TorchPhysics
 =================================
 In this tutorial, we will cover the starting point for every PDE setting: The involved
-spaces which define the names and dimensionlities of all variables.
+spaces which define the names and dimensionalities of all variables.
 
 Spaces
 ------
 The class **Space** itself is quite lazy and basically consists of a counter collecting
-dimensionlities of space variables. It's purpose is to define variable names that can later
+dimensionalities of space variables. It's purpose is to define variable names that can later
 be used, e.g. in user-defined functions. They therefore appear in several parts of TorchPhysics,
 for example in the definition of domains or models.
 
@@ -55,7 +55,7 @@ Points
 The ``Points`` object is another central part of TorchPhysics. It consists of a PyTorch-tensor
 collecting a set of points in a ``Space``. It is generated e.g. by the samplers during training
 and handed to and from all models as in- and output. However, for standard use-cases, ``Points``
-mostly stay behind the scenes, so if you don't need custom behaviour when using TorchPhysics, feel
+mostly stay behind the scenes, so if you don't need custom behavior when using TorchPhysics, feel
 free to skip this part of the tutorial for now.
 
 ``Points`` store data in a tensor with 2-axis, the first corresponding the batch-dimension in a batch
@@ -78,9 +78,9 @@ All ``Points`` have a space and therefore also a dimensionality and a variable s
    >>> points.dim
    3
 We can access the contents of a ``Points`` object in a single tensor or with the corresponding coordinate
-dict using ``.as_tensor`` or ``.coordinates`` attribues. ``Points`` also support most torch functions that
+dict using ``.as_tensor`` or ``.coordinates`` attributes. ``Points`` also support most torch functions that
 work on tensors and support slicing via keys along the ordered variable axis, regarding the last key in slicing
-(similar to NumPy or PyTorch-behaviour):
+(similar to NumPy or PyTorch-behavior):
 
 .. code-block:: python
 

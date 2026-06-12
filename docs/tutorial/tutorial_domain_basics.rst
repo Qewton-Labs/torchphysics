@@ -87,8 +87,8 @@ but for complex domains, the creation of training points will possibly become co
    cut_domain = R - C
 
 The boundary can be again called with ``.boundary``. Since the operation can create 
-complex domains the voluem can not always be computed. If a exact value is needed, 
-one has to set it over the ``set_volume`` methode.
+complex domains the volume can not always be computed. If a exact value is needed, 
+one has to set it over the ``set_volume`` method.
 
 Again we can have a look at the corresponding geometries: 
 

@@ -40,7 +40,7 @@ class FCN(Model):
         The space of the points returned by this model.
     hidden : list or tuple
         The number and size of the hidden layers of the neural network.
-        The lenght of the list/tuple will be equal to the number
+        The length of the list/tuple will be equal to the number
         of hidden layers, while the i-th entry will determine the number
         of neurons of each layer.
         E.g hidden = (10, 5) -> 2 layers, with 10 and 5 neurons.
@@ -48,7 +48,7 @@ class FCN(Model):
         The activation functions of this network. If a single function is passed
         as an input, will use this function for each layer.
         If a list is used, will use the i-th entry for i-th layer.
-        Deafult is nn.Tanh().
+        Default is nn.Tanh().
     xavier_gains : float or list, optional
         For the weight initialization a Xavier/Glorot algorithm will be used.
         The gain can be specified over this value.
@@ -104,22 +104,22 @@ class Harmonic_FCN(Model):
         The space of the points returned by this model.
     hidden : list or tuple
         The number and size of the hidden layers of the neural network.
-        The lenght of the list/tuple will be equal to the number
+        The length of the list/tuple will be equal to the number
         of hidden layers, while the i-th entry will determine the number
         of neurons of each layer.
         E.g hidden = (10, 5) -> 2 layers, with 10 and 5 neurons.
     max_frequenz : int
-        The highest frequenz that should be used in the input computation.
-        Equal to :math:`n` in the above describtion.
+        The highest frequency that should be used in the input computation.
+        Equal to :math:`n` in the above description.
     min_frequenz : int
-        The smallest frequenz that should be used. Usefull, if it is expected, that
-        only higher frequenzies appear in the solution.
+        The smallest frequency that should be used. Useful, if it is expected, that
+        only higher frequencies appear in the solution.
         Default is 0.
     activations : torch.nn or list, optional
         The activation functions of this network. If a single function is passed
         as an input, will use this function for each layer.
         If a list is used, will use the i-th entry for i-th layer.
-        Deafult is nn.Tanh().
+        Default is nn.Tanh().
     xavier_gains : float or list, optional
         For the weight initialization a Xavier/Glorot algorithm will be used.
         The gain can be specified over this value.
@@ -221,3 +221,45 @@ class Polynomial_FCN(Model):
         in_layer = torch.empty((input_dim, output_dim, polynomial_degree))
         self.layers.append(nn.Parameter(in_layer))
         torch.nn.init.xavier_normal_(self.layers[-1], gain=xavier_gain)
+
+
+class Operator_FCN(Model):
+    """A simple fully connected neural network used for operator learning.
+
+    Parameters
+    ----------
+    """
+
+    def __init__(
+        self,
+        input_fn_space,
+        output_fn_space,
+        in_discretization,
+        out_discretization,
+        hidden=(20, 20, 20),
+        activations=nn.Tanh(),
+        xavier_gains=5/3,
+        activation_fn_output=None,
+    ):
+        super().__init__(input_fn_space.output_space, output_fn_space.output_space)
+
+        layers = _construct_FC_layers(
+            hidden=hidden,
+            input_dim=in_discretization*input_fn_space.output_space.dim,
+            output_dim=out_discretization*output_fn_space.output_space.dim,
+            activations=activations,
+            xavier_gains=xavier_gains,
+        )
+
+        self.out_dis = out_discretization
+
+        if not activation_fn_output is None:
+            layers.append(activation_fn_output)
+
+        self.sequential = nn.Sequential(*layers)
+
+    def forward(self, points):
+        points = self._fix_points_order(points).as_tensor
+        model_out = self.sequential(points.flatten(start_dim=-2))
+        return Points(torch.unflatten(model_out, dim=-1, sizes=(self.out_dis, self.output_space.dim)), 
+                      self.output_space)

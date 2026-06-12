@@ -19,7 +19,7 @@ class RandomUniformSampler(PointSampler):
     n_points : int, optional
         The number of points that should be sampled.
     density : float, optional
-        The desiered density of the created points.
+        The desired density of the created points.
     filter : callable, optional
         A function that restricts the possible positions of sample points.
         A point that is allowed should return True, therefore a point that should be
@@ -257,7 +257,7 @@ class AdaptiveThresholdRejectionSampler(AdaptiveSampler):
         The number of points that should be sampled.
     density : float, optional
         The desired initial (and average) density of the created points, actual
-        density will change loccally during iterations.
+        density will change locally during iterations.
     filter : callable, optional
         A function that restricts the possible positions of sample points.
         A point that is allowed should return True, therefore a point that should be
@@ -307,7 +307,7 @@ class AdaptiveRandomRejectionSampler(AdaptiveSampler):
         The number of points that should be sampled.
     density : float, optional
         The desired initial (and average) density of the created points, actual
-        density will change loccally during iterations.
+        density will change locally during iterations.
     filter : callable, optional
         A function that restricts the possible positions of sample points.
         A point that is allowed should return True, therefore a point that should be

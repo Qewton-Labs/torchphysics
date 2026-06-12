@@ -16,7 +16,7 @@ def discrete_grad_on_grid(model_out, grid_size):
 
       Notes
       -----
-      This methode assumes that the input function which the gradient should be
+      This method assumes that the input function which the gradient should be
       computed of is defined on a regular equidistant grid. 
       The shape of function is assumed to be of the form 
       (batch_size, N_1, N_2, ..., N_d, dim), 
@@ -36,10 +36,10 @@ def discrete_grad_on_grid(model_out, grid_size):
       read_from_slice_one_sided = [slice(None)] * len(model_out.shape)
       
       for i in range(number_of_dims):
-            # Update the last dimension to wrtie the correct gradient components
+            # Update the last dimension to write the correct gradient components
             write_to_slice[-1] = slice(i * model_out.shape[-1], (i + 1) * model_out.shape[-1])
 
-            # pick correct dimenison for the current direction
+            # pick correct dimension for the current direction
             write_to_slice[i+1] = slice(1, -1)
             read_from_slice_left[i+1] = slice(2, None)
             read_from_slice_right[i+1] = slice(0, -2)
@@ -89,7 +89,7 @@ def discrete_laplacian_on_grid(model_out, grid_size):
 
       Notes
       -----
-      This methode assumes the same properties as `discrete_grad_on_grid`.
+      This method assumes the same properties as `discrete_grad_on_grid`.
       """
       number_of_dims = len(model_out.shape) - 2
       laplace = torch.zeros(*model_out.shape, device=model_out.device)
@@ -101,7 +101,7 @@ def discrete_laplacian_on_grid(model_out, grid_size):
       read_from_slice_one_sided = [slice(None)] * len(model_out.shape)
 
       for i in range(number_of_dims):
-            # pick correct dimenison for the current direction
+            # pick correct dimension for the current direction
             write_to_slice[i+1] = slice(1, -1)
             read_from_slice_center[i+1] = slice(1, -1)
             read_from_slice_left[i+1] = slice(2, None)

@@ -24,7 +24,7 @@ class OperatorCondition(Condition):
         Whether to compute the relative error (i.e. error / target) or absolute error.
         Default is True, hence, the relative error is used.
     error_fn : callable, optional
-        the function used to compute the final loss. E.g., the squarred error or 
+        the function used to compute the final loss. E.g., the squared error or 
         any other norm.
     reduce_fn : callable, optional
         Function that will be applied to reduce the loss to a scalar. Defaults to

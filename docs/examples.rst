@@ -20,7 +20,7 @@ One of the simplest applications is the forward solution of a Poisson equation:
    u &= \sin(\frac{\pi}{2} x_1)\cos(2\pi x_2), \text{ on } \partial \Omega
    \end{align}
 
-This problem is part of the tutorial and is therefore explained with alot of details. 
+This problem is part of the tutorial and is therefore explained with a lot of details. 
 The corresponding implementation can be found here_.
 
 .. _here : tutorial/solve_pde.html
