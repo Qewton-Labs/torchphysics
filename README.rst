@@ -73,9 +73,9 @@ to have a look at the following sections:
 - `Examples: Different applications with detailed explanations`_
 - Documentation_
 
-.. _`Tutorial: Understanding the structure of TorchPhysics`: https://boschresearch.github.io/torchphysics/tutorial/tutorial_start.html
-.. _`Examples: Different applications with detailed explanations`: https://github.com/boschresearch/torchphysics/tree/main/examples
-.. _Documentation: https://boschresearch.github.io/torchphysics/index.html
+.. _`Tutorial: Understanding the structure of TorchPhysics`: https://Qewton-Labs.github.io/torchphysics/tutorial/tutorial_start.html
+.. _`Examples: Different applications with detailed explanations`: https://github.com/Qewton-Labs/torchphysics/tree/main/examples
+.. _Documentation: https://Qewton-Labs.github.io/torchphysics/index.html
 
 
 Installation
@@ -99,7 +99,7 @@ Or by
 
 .. code-block:: python
 
-  git clone https://github.com/boschresearch/torchphysics 
+  git clone https://github.com/Qewton-Labs/torchphysics 
   cd path_to_torchphysics_folder
   pip install .[all]
 
@@ -127,7 +127,7 @@ an issue or a pull request in GitHub_ or contact the authors. Since we developed
 during a seminar, we cannot guarantee every feature to work properly. However, we are happy about all contributions
 since we aim to develop a reliable code basis and extend the library to include other approaches.
 
-.. _GitHub: https://github.com/boschresearch/torchphysics
+.. _GitHub: https://github.com/Qewton-Labs/torchphysics
 
 Cite TorchPhysics
 =================
@@ -150,7 +150,7 @@ License
 =======
 TorchPhysics uses an Apache License, see the LICENSE_ file.
 
-.. _LICENSE: https://github.com/boschresearch/torchphysics/blob/main/LICENSE.txt
+.. _LICENSE: https://github.com/Qewton-Labs/torchphysics/blob/main/LICENSE.txt
 
 
 Bibliography

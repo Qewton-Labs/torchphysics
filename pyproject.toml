@@ -35,10 +35,10 @@ file = "README.rst"
 content-type = "text/x-rst; charset=UTF-8"
 
 [project.urls]
-Homepage = "https://github.com/boschresearch/torchphysics"
-Documentation = "https://boschresearch.github.io/torchphysics/index.html"
-Source = "https://github.com/boschresearch/torchphysics"
-Changelog = "https://github.com/boschresearch/torchphysics/blob/main/CHANGELOG.rst"
+Homepage = "https://github.com/Qewton-Labs/torchphysics"
+Documentation = "https://Qewton-Labs.github.io/torchphysics/index.html"
+Source = "https://github.com/Qewton-Labs/torchphysics"
+Changelog = "https://github.com/Qewton-Labs/torchphysics/blob/main/CHANGELOG.rst"
 
 [project.optional-dependencies]
 all = [

@@ -7,7 +7,7 @@ and the PINN idea.
 
 More examples can be found under the `examples-folder`_.
 
-.. _`examples-folder`: https://github.com/boschresearch/torchphysics/tree/main/examples
+.. _`examples-folder`: https://github.com/Qewton-Labs/torchphysics/tree/main/examples
 
 Poisson problem
 ===============
@@ -47,7 +47,7 @@ Implemented is this example in: `simple-parameter-dependency-notebook`_
 This approach is also possible for complexer problems, see for example this notebook_.
 Where we apply this idea to the heat equation.
 
-.. _notebook: https://github.com/boschresearch/torchphysics/blob/main/examples/pinn/heat-equation.ipynb
+.. _notebook: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/pinn/heat-equation.ipynb
 
 Inverse heat equation
 =====================
@@ -71,8 +71,8 @@ TorchPhysics:
 - `Constant-D-notebook`_
 - `Space-dependent-D-notebook`_
 
-.. _`Constant-D-notebook`: https://github.com/boschresearch/torchphysics/blob/main/examples/pinn/inverse-heat-equation.ipynb
-.. _`Space-dependent-D-notebook`: https://github.com/boschresearch/torchphysics/blob/main/examples/pinn/inverse-heat-equation-D-function.ipynb
+.. _`Constant-D-notebook`: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/pinn/inverse-heat-equation.ipynb
+.. _`Space-dependent-D-notebook`: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/pinn/inverse-heat-equation-D-function.ipynb
 
 Heat equation on moving domain
 ==============================
@@ -94,7 +94,7 @@ solution of this problem.
 
 Link to the notebook: `moving-domain-notebook`_ 
 
-.. _`moving-domain-notebook`: https://github.com/boschresearch/torchphysics/blob/main/examples/pinn/moving-heat-equation.ipynb
+.. _`moving-domain-notebook`: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/pinn/moving-heat-equation.ipynb
 
 
 Using hard constrains
@@ -114,7 +114,7 @@ in TorchPhysics and is demonstrated in this `hard-constrains-notebook`_. There w
 
 where the high frequency is problematic for the usual PINN-approach.
 
-.. _`hard-constrains-notebook`: https://github.com/boschresearch/torchphysics/blob/main/examples/pinn/hard-constrains.ipynb
+.. _`hard-constrains-notebook`: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/pinn/hard-constrains.ipynb
 
 
 Interface jump
@@ -142,4 +142,4 @@ networks on disjoint domains, coupled over the interface.
 
 Link to the notebook: `jump-notebook`_ 
 
-.. _`jump-notebook`: https://github.com/boschresearch/torchphysics/blob/main/examples/pinn/interface-jump.ipynb
+.. _`jump-notebook`: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/pinn/interface-jump.ipynb

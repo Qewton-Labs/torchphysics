@@ -31,3 +31,10 @@ Version 1.1.0
     - Simplified saving and loading of neural networks
     - Added discrete differential operators
     - Updated operator learning examples
+
+Version 1.1.1
+=============
+    - Improvement of documentation
+    - Improvement of FNO-architecture
+    - More utilities for hard constraints
+    - New examples 
