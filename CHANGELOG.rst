@@ -32,7 +32,7 @@ Version 1.1.0
     - Added discrete differential operators
     - Updated operator learning examples
 
-Version 1.1.1
+Version 1.1.2
 =============
     - Improvement of documentation
     - Improvement of FNO-architecture
