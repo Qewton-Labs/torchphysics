@@ -4,7 +4,7 @@ Solving a simple PDE
 The following problem also exists as an notebook_. Here we give a beginner-friendly introduction 
 to TorchPhysics, going over all the basic concepts and steps.
 
-.. _notebook: https://github.com/boschresearch/torchphysics/blob/main/examples/tutorial/solve_pde.ipynb
+.. _notebook: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/tutorial/solve_pde.ipynb
 
 We introduce the library with the aim to solve the following PDE:
 
@@ -209,5 +209,5 @@ be found under the `example-folder`_.
 
 And more in-depth information can be found on the `tutorial page`_.
 
-.. _`example-folder`: https://github.com/boschresearch/torchphysics/tree/main/examples
-.. _`tutorial page`: https://boschresearch.github.io/torchphysics/tutorial/tutorial_start.html
+.. _`example-folder`: https://github.com/Qewton-Labs/torchphysics/tree/main/examples
+.. _`tutorial page`: https://Qewton-Labs.github.io/torchphysics/tutorial/tutorial_start.html

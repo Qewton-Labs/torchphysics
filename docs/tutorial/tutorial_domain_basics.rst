@@ -16,7 +16,7 @@ For explicit documentation of each method and all implemented domains, see the d
 All domains can be found under ``torchphysics.domains``.
 Some pre implemented domains are: ``Point, Interval, Parallelogram, Circle...``
 
-.. _docs: https://boschresearch.github.io/torchphysics/api/torchphysics.problem.domains.html
+.. _docs: https://Qewton-Labs.github.io/torchphysics/api/torchphysics.problem.domains.html
 
 Here we focus now on the creation of different domains. To create a domain,
 we need a space to which the domain belongs. 
@@ -27,7 +27,7 @@ The definition of spaces were part of the `previous tutorial`_.
 You can find The following code as a notebook here_, if you want to try out something yourself.
 To create the interval [0, 5]:
 
-.. _here: https://github.com/boschresearch/torchphysics/blob/main/examples/tutorial/domain_creation.ipynb
+.. _here: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/tutorial/domain_creation.ipynb
 
 .. code-block:: python
 

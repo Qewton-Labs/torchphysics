@@ -18,7 +18,7 @@ The following code exist in this notebook_.
 
 .. _Shapely: https://github.com/shapely/shapely
 .. _Trimesh: https://github.com/mikedh/trimesh
-.. _notebook: https://github.com/boschresearch/torchphysics/blob/main/examples/tutorial/polygons_external_objects.ipynb
+.. _notebook: https://github.com/Qewton-Labs/torchphysics/blob/main/examples/tutorial/polygons_external_objects.ipynb
 
 Polygons
 --------
